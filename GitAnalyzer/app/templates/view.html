@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="HandheldFriendly" content="true">
+
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+	<link rel="shortcut icon" type="image/x-icon" href="static/images/wiki.ico">
+	<link rel="stylesheet" href="static/css/style.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+	<title id="title"></title>
+</head>
+<body onload="getParams()">
+	<h2>helelo</h2>
+	<table>
+		{% for key, value in data %}
+		<!-- Trial -->
+		<tr>
+			<td>{{ key|safe }}</td>
+			<td>{{ value|safe }}</td>
+		</tr>
+		
+				
+		<!-- {{ item|safe }}  -->
+					
+	{% endfor %}
+	</table>
+	
+    <script>
+        var text = "";
+        function getParams() {
+    		var vars = {};
+    		var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {
+        		vars[key] = value;
+				return vars;
+				
+    		});
+            text += vars;
+
+			console.log(vars);
+			console.log(vars['username']);
+            console.log(vars['type'])
+			
+            var user = vars['username'];
+
+			var title = document.getElementById('title');
+			var heading = document.getElementById('heading');
+			var headingSmall = document.getElementById('headingSmall');
+
+
+			var t = user + '   - Profile';
+			//var head = search.toUpperCase() + '   - Wikipedia';
+			//console.log(x);
+			//console.log(title);
+			//heading.innerHTML = head;
+			//headingSmall.innerHTML = head;
+			title.innerHTML = t;
+			
+		}
+        console.log(vars);
+    </script>
+</body>
+</html>

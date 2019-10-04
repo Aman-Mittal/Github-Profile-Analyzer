@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="HandheldFriendly" content="true">
+
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+	<link rel="stylesheet" href="static/css/style.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+	<link rel="shortcut icon" type="image/x-icon" href="static/images/git.ico">
+	<title title="Github Analyzer" id="title">Github Profile Analyzer</title>
+	<style>
+		#ploader {
+   			position: fixed;
+   			width: 100%;
+   			height: 100%;
+   			z-index: 9999;
+   			background: #fff url('static/images/gitload1.gif') no-repeat center;
+		}
+		body{
+			background: url("static/images/githubback.jpg") no-repeat;
+			background-attachment: fixed;
+			background-size: cover;
+			max-width: 100%;
+			height: auto;
+		}
+		.main{
+			width: 500px;
+			margin: auto;
+			text-align: center;
+			position: relative;
+		}
+		.main{
+			width: 600px;
+		}
+		form{
+			margin-top: 85%;
+		}
+		
+		
+	</style>
+</head>
+<body onload="githubLoader()">
+	<div id="ploader"></div>
+	<!--
+	<div class="w3-display-container w3-text-white">
+		<img src="static/images/githubback.jpg" alt="github" class="w3-image" style="width: 100%;">
+		<h2 class="w3-center w3-jumbo w3-wide w3-text-white w3-display-topmiddle">Github Analyzer</h2>
+		<div class="main">
+			<form>
+				<input name="username" value="ak55073" type="text" id="username" placeholder="Enter username..." required autofocus class="w3-border w3-round w3-black w3-display-bottommiddle">
+				<select id="selection" name="type" class="w3-border w3-round w3-black w3-display-bottommiddle">
+					<option value="Profile">Profile</option>
+					<option value="Data">Data</option>
+				</select>
+				<br>
+				<input onclick="submit()" type="submit" value="Submit" class="w3-button w3-center w3-margin-top w3-blue w3-round w3-display-bottommiddle">
+			</form>
+		</div>
+	</div>
+	-->
+	<h2 class="w3-center w3-jumbo w3-wide w3-text-white">Github Profile Analyzer</h2>
+	<button class="w3-display-topright w3-black w3-margin w3-padding" onclick="aboutModal()">About Us</button>
+	<div class="w3-modal" id="about">
+		<div class="w3-modal-content w3-center w3-border" style="width: 400px;top: 40%;left: 15%; position: relative; transform: translate(-50%, -50%);">
+			<div class="w3-container">
+				<span onclick="document.getElementById('about').style.display='none'" class="w3-button w3-display-topright w3-white w3-text-black w3-hover-red">&times;</span>
+			</div>
+			<div class="w3-xlarge w3-center w3-padding w3-text-white w3-black" style="border: 2px solid #fff">
+				<h2>Aditya Goel</h2>
+				<h2>Hirdesh Gusain</h2>
+				<h2>Aman Mittal</h2>
+			</div>
+			
+		</div>
+	</div>
+	<div class="main">
+		<form>
+			<div class="w3-row-padding">
+				<div class="w3-half">
+					<input name="username" value="" type="text" id="username" placeholder="Enter username..." required autofocus class="w3-input w3-border w3-round w3-black">
+				</div>
+				<div class="w3-half">
+					<select id="selection" name="type" class="w3-select w3-border w3-round w3-black">
+						<option value="Profile">View Profile</option>
+						<option value="Data">Repository Data</option>
+					</select>
+				</div>
+			</div>
+			<br>
+			<input onclick="submit()" type="submit" value="Submit" class="w3-button w3-center w3-margin-top w3-blue w3-round">
+		</form>
+	</div>
+
+	
+			
+	
+
+	<script>
+		var ploader = document.getElementById('ploader');
+
+		//Preloader  function
+		function githubLoader(){
+			setTimeout(loadin, 1000);
+			
+		}
+
+		//loading function
+		function loadin(){
+			ploader.style.display = 'none';
+		}
+		
+		var title = document.getElementById('title');
+		function submit(){
+			
+			var s = document.getElementById("username").value;	
+			var profile = document.getElementById('selection');
+			var pro = profile.options[profile.selectedIndex].value
+			window.location.href = '?username=' + s + '&profile=' + pro; 
+
+			title.innerHTML = s + ' - ' + pro;
+			
+		}
+
+		function aboutModal(){
+			var about = document.getElementById('about');
+			about.style.display = 'block';
+		}
+
+	</script>
+</body>
+</html>
